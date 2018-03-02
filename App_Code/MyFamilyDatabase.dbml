@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyFamilyDatabase" Class="MyFamilyDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=CHELSQLGIS011\SQL2008;Initial Catalog=myfamilydatabase;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MyFamilyDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Occupation" Member="Occupations">
+    <Type Name="Occupation">
+      <Column Name="OccupationID" Type="System.Int16" DbType="Smallint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OccupationDesc" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Occupation_PersonInfo" Member="PersonInfos" ThisKey="OccupationID" OtherKey="OccupationID" Type="PersonInfo" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PersonInfo" Member="PersonInfos">
+    <Type Name="PersonInfo">
+      <Column Name="PersonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="OccupationID" Type="System.Int16" DbType="smallint" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PlaceOfBirth" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PrimaryEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SecondaryEmail" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AboutMe" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SpouseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FatherID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="ShowDOB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ManagedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VARCHAR(MAX)" CanBeNull="true" />
+      <Association Name="PersonInfo_PersonInfo" Member="Children" ThisKey="PersonID" OtherKey="FatherID" Type="PersonInfo" />
+      <Association Name="PersonInfo_PersonInfo" Member="Father" ThisKey="FatherID" OtherKey="PersonID" Type="PersonInfo" IsForeignKey="true" />
+      <Association Name="Occupation_PersonInfo" Member="Occupation" ThisKey="OccupationID" OtherKey="OccupationID" Type="Occupation" IsForeignKey="true" />
+      <Association Name="PersonInfo_PersonInfo1" Member="Spouse" ThisKey="SpouseID" OtherKey="PersonID" Type="PersonInfo" IsForeignKey="true" />
+      <Association Name="PersonInfo_PersonInfo2" Member="ManagedByPerson" Storage="_PersonInfo1" ThisKey="ManagedBy" OtherKey="PersonID" Type="PersonInfo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Businesses">
+    <Type Name="Business">
+      <Column Name="BusinessId" Type="System.String" CanBeNull="false" />
+      <Column Name="BusinessName" Type="System.String" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" CanBeNull="false" />
+      <Column Name="OwnerID" Type="System.String" CanBeNull="false" />
+      <Column Name="Phone1" Type="System.String" CanBeNull="false" />
+      <Column Name="Phone2" Type="System.String" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

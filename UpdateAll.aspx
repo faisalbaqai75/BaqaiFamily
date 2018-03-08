@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
     <div style="margin-left: 40px">
     
+        <asp:Label ID="lblError" runat="server" Text="Label" ForeColor="Red" />
+    
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
             AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="PersonID" 
             DataSourceID="LinqDataSource1" PageSize="50" EnableModelValidation="True">
@@ -57,7 +59,7 @@
         </asp:GridView>
         <asp:LinqDataSource ID="LinqDataSource1" runat="server" 
             ContextTypeName="MyFamilyDatabaseDataContext" EnableDelete="True" 
-            EnableInsert="True" EnableUpdate="True" TableName="PersonInfos">
+            EnableInsert="True" EnableUpdate="True" TableName="PersonInfos" OnDeleting="LinqDataSource1_Deleting">
         </asp:LinqDataSource>
     
     </div>

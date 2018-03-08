@@ -620,11 +620,5 @@
             </tr>
         </table>
     </form>
-    
-     <!-- Begin BidVertiser code -->
-<SCRIPT LANGUAGE="JavaScript1.1" SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204232&bid=498236" type="text/javascript"></SCRIPT>
-    <br />
-<noscript><a href="http://www.bidvertiser.com">affiliate program</a></noscript>
-<!-- End BidVertiser code --> 
 </body>
 </html>

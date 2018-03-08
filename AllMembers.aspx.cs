@@ -19,6 +19,9 @@ public partial class AllMembers : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         _db = new MyFamilyDatabaseDataContext();
+        //_db.DeferredLoadingEnabled = true;
+        //_db.Log = Response.Output;
+
         short occId = -1;
         if (!short.TryParse(Request["OccupationId"] ?? "-1", out occId))
             _OccupationId = null;
@@ -28,7 +31,7 @@ public partial class AllMembers : System.Web.UI.Page
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {
-            lblLogin.Text = "Welcome " + pInfo.FullName;
+            lblLogin.Text = string.Format("Welcome <a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", pInfo.PersonID, pInfo.FullName);
         }
         else
         {

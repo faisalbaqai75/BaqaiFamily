@@ -13,6 +13,7 @@ public partial class PersonInfoTree : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         _db = new MyFamilyDatabaseDataContext();
+        _db.ObjectTrackingEnabled = false;
         int id;
         if (!int.TryParse(Request["PersonID"], out id))
             id = 9;
@@ -22,7 +23,7 @@ public partial class PersonInfoTree : System.Web.UI.Page
         _LogedInUserInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (_LogedInUserInfo != null)
         {
-            lblLogin.Text = "Welcome " + _LogedInUserInfo.FullName;
+            lblLogin.Text = string.Format("Welcome <a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", _LogedInUserInfo.PersonID, _LogedInUserInfo.FullName);
         }
         else
         {

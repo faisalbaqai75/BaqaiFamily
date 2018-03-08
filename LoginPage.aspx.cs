@@ -9,6 +9,10 @@ public partial class LoginPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (!Page.IsPostBack)
+        {
+            ViewState["GoBackTo"] = Request.UrlReferrer;
+        }
     }
     protected void Button1_Click(object sender, EventArgs e)
     {
@@ -23,7 +27,12 @@ public partial class LoginPage : System.Web.UI.Page
             if (pInfo != null)
             {
                 Session["LogedInUserInfo"] = pInfo;
-                Response.Redirect("./Default.aspx");
+                
+                //Send back to the page where user came from. If user directly landed to this page, send to Default.aspx
+                if (ViewState["GoBackTo"] != null)
+                    Response.Redirect(ViewState["GoBackTo"].ToString());
+                else
+                    Response.Redirect("./Default.aspx");
             }
             else
             {

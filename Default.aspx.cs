@@ -24,7 +24,7 @@ public partial class _Default : System.Web.UI.Page
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {
-            lblLogin.Text = "Welcome " + pInfo.FullName;
+            lblLogin.Text = string.Format("Welcome <a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", pInfo.PersonID, pInfo.FullName);
         }
         else
         {

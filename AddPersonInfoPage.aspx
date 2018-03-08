@@ -4,6 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3404660-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-3404660-2');
+    </script>
     <title>Welcome to Baqai Family</title>
     <style type="text/css">
             
@@ -416,8 +425,8 @@
                                     <br />
                                     Show DOB:<asp:DropDownList ID="DropDownList5" runat="server" 
                                         SelectedValue='<%# Bind("ShowDOB") %>' Width="200px">
-                                        <asp:ListItem Value="1">True</asp:ListItem>
                                         <asp:ListItem Value="0">False</asp:ListItem>
+                                        <asp:ListItem Value="1">True</asp:ListItem>
                                     </asp:DropDownList>
 &nbsp;<br />Managed By:<asp:DropDownList ID="DropDownList6" runat="server"  AppendDataBoundItems="true"
                                         DataSourceID="ManagedByDataSource" DataTextField="FullName" 
@@ -505,11 +514,5 @@
             </tr>
         </table>
     </form>
-    
-     <!-- Begin BidVertiser code -->
-<SCRIPT LANGUAGE="JavaScript1.1" SRC="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204232&bid=498236" type="text/javascript"></SCRIPT>
-    <br />
-<noscript><a href="http://www.bidvertiser.com">affiliate program</a></noscript>
-<!-- End BidVertiser code --> 
 </body>
 </html>

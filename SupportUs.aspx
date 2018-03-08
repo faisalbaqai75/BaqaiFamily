@@ -19,12 +19,12 @@
         <table class="style1">
             <tr>
                 <td>
-                    Earn cashback for your online shopping, signup using referral <a href="http://www.ebates.com/rf.do?referrerid=oRnNjQYBRGgCkeGkceajKw%3D%3D">link.</a></td>
+                    Earn cashback for your online shopping, signup using referral <a href="https://www.ebates.com/r/FAISAL159?eeid=28187">link.</a></td>
             </tr>
             <tr>
                 <td>
                     Big Crumbs is another cashback website for your online shopping. Signup using 
-                    referral <a href="http://www.bigcrumbs.com/crumbs/landing.do?r=FaizaFaisal&s=47785">link.</a></td>
+                    referral <a href="http://refer.amex.us/FAIZAFv47z">link.</a></td>
             </tr>
             <tr>
                 <td>

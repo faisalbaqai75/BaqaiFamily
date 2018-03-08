@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Data.Linq;
 
 public partial class FamilyTree : System.Web.UI.Page
 {
@@ -14,7 +15,7 @@ public partial class FamilyTree : System.Web.UI.Page
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {
-            lblLogin.Text = "Welcome " + pInfo.FullName;
+            lblLogin.Text = string.Format("Welcome <a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", pInfo.PersonID, pInfo.FullName);
         }
         else
         {
@@ -35,9 +36,10 @@ public partial class FamilyTree : System.Web.UI.Page
         TreeView1.Nodes.Add(rootNode);
         
         var allMale = db.PersonInfos.Where(p => p.PersonID != 0 && (p.FatherID == null || p.FatherID == 0) && p.Gender == "Male" && p.FullName.Contains("Baqai")).OrderBy(o => o.FullName);
+
+        DateTime start = DateTime.Now;
         foreach (PersonInfo male in allMale)
         {
-
             TreeNode childNode = new TreeNode();
             childNode.Text = male.FullName;
             childNode.Value = male.PersonID.ToString();

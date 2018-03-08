@@ -6,15 +6,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-3404660-2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-3404660-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'UA-3404660-2');
-</script>
+        gtag('config', 'UA-3404660-2');
+    </script>
     <title><%if (_PersonInfo != null) { Response.Write(_PersonInfo.FullName); } %></title>
     <link href="TreeTemplate.css" rel="stylesheet" />
     <style type="text/css">
@@ -151,19 +151,9 @@
                         </div>
                         <div id="news_content" class="iconbox2contents"
                             style="display: block; top: 0px; left: -1px; height: 90px;">
-                            <%--                            <ul>
-                                <li><a href="./Default.aspx">Home</a></li>
-                                <li><a href="./FamilyTree.aspx">Family Tree</a></li>
-                                <li><a href="./AllMembers.aspx">All family members</a></li>
-                            </ul>--%>
-
-                            <a href="./Default.aspx">Home</a><br />
-                            <br />
-                            <a href="./FamilyTree.aspx">Family Tree</a><br />
-                            <br />
-                            <a href="./AllMembers.aspx">All family members</a><br />
-                            <br />
-
+                            &nbsp;&nbsp;<a href="./Default.aspx">Home</a><br />
+                            &nbsp;&nbsp;<a href="./FamilyTree.aspx">Family Tree</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx">All family members</a><br />
                         </div>
                     </div>
                     <br />
@@ -175,21 +165,10 @@
                         </div>
                         <div id="Div1" class="iconbox2contents"
                             style="display: block; top: 0px; left: -1px; height: 122px;">
-                            <%--                            <ul>
-                                <li><a href=".\Businesses.aspx">Hospitals/Clinics</a></li>
-                                <li><a href=".\Businesses.aspx">Stores</a></li>
-                                <li><a href=".\Businesses.aspx">Industries</a></li>
-                                <li><a href=".\Businesses.aspx">Small Businesses</a></li>
-                            </ul>--%>
-
-                            <a href=".\Businesses.aspx">Hospitals/Clinics</a><br />
-                            <br />
-                            <a href=".\Businesses.aspx">Stores</a><br />
-                            <br />
-                            <a href=".\Businesses.aspx">Industries</a><br />
-                            <br />
-                            <a href=".\Businesses.aspx">Small Businesses</a><br />
-                            <br />
+                            &nbsp;&nbsp;<a href=".\Businesses.aspx">Hospitals/Clinics</a><br />
+                            &nbsp;&nbsp;<a href=".\Businesses.aspx">Stores</a><br />
+                            &nbsp;&nbsp;<a href=".\Businesses.aspx">Industries</a><br />
+                            &nbsp;&nbsp;<a href=".\Businesses.aspx">Small Businesses</a><br />
                         </div>
                     </div>
 
@@ -202,34 +181,30 @@
                         </div>
                         <div id="Div2" class="iconbox2contents"
                             style="display: block; top: 0px; left: -1px; height: 216px;">
-                            <%--                            <ul>
-                                <li><a href="./AllMembers.aspx?OccupationId=1">Software Engineers</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=2">Electrical Engineers</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=3">Computer Engineers</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=4">Mechanical Engineers</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=7">Civil Engineers</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=5">Doctors</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=23">Hakeems</a></li>
-                                <li><a href="./AllMembers.aspx?OccupationId=6">Teachers</a></li>
-                                <li><a href="#">More coming soon</a></li>
-                                </ul>
-                            --%>
-
-                            <a href="./AllMembers.aspx?OccupationId=1">Software Engineers</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=2">Electrical Engineers</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=3">Computer Engineers</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=4">Mechanical Engineers</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=7">Civil Engineers</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=5">Doctors</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=23">Hakeems</a><br />
-                            <a href="./AllMembers.aspx?OccupationId=6">Teachers</a><br />
-                            <a href="#">More coming soon</a>
-
-
-
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=1">Software Engineers</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=2">Electrical Engineers</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=3">Computer Engineers</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=4">Mechanical Engineers</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=7">Civil Engineers</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=5">Doctors</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=23">Hakeems</a><br />
+                            &nbsp;&nbsp;<a href="./AllMembers.aspx?OccupationId=6">Teachers</a><br />
+                            &nbsp;&nbsp;<a href="#">More coming soon</a>
                         </div>
                     </div>
-
+                    <div class="slidecontainer_open">
+                        <div class="iconbox2heading">
+                            <span id="Span4" class="headerToggle">
+                                <img class="headerToggleImage"
+                                    src="./images/minus.gif" /></span>Stay Connected
+                        </div>
+                        <div id="Div4" class="iconbox2contents"
+                            style="display: block; top: 0px; left: -1px; height: 100px;">
+                                &nbsp;&nbsp;<a href="http://www.facebook.com/groups/BaqaiFamily/">Facebook</a><br />
+                                &nbsp;&nbsp;<a href="http://groups.yahoo.com/group/baqai/">Yahoo Group</a><br />
+                                &nbsp;&nbsp;<a href="mailto:BaqaiFamily@outlook.com" target="_top">Contact Us</a><br />
+                        </div>
+                    </div>
                 </td>
                 <td>
                     <div>
@@ -343,7 +318,6 @@
                         %>
                     </div>
 
-
                     <!-- New Code -->
                     <div class="tree">
                         <div>
@@ -383,10 +357,10 @@
                                                       Response.Write("<li><a href='PersonInfo.aspx?PersonID=" + child.PersonID + "'><img src='" + filePath + "' alt='' /><br/>" + child.FullName + "</a></li>");
                                                   }
                                                   //Add a new child
-                                                  if (_PersonInfo.Gender == "Male" && _PersonInfo.SpouseID != null && _PersonInfo.SpouseID != 0)
+                                                  if (_PersonInfo.Gender == "Male")// && _PersonInfo.SpouseID != null && _PersonInfo.SpouseID != 0)
                                                   {
-                                                      //Anyone can add child as long as 'PersonInfo' is male and married.
-                                                      Response.Write("<li><a href='./AddPersonInfoPage.aspx'>Add a child...</a></li>");
+                                                      //Anyone can add child //as long as 'PersonInfo' is male and married.
+                                                      Response.Write("<li><a href='./AddPersonInfoPage.aspx?FatherId=" + _PersonInfo.PersonID + "'>Add a child...</a></li>");
                                                   }
 
                                                   Response.Write("</ul>");
@@ -405,9 +379,5 @@
         </table>
         <br />
     </form>
-    <!-- Begin BidVertiser code -->
-    <script language="JavaScript1.1" src="http://bdv.bidvertiser.com/BidVertiser.dbm?pid=204232&bid=498236" type="text/javascript"></script>
-    <noscript><a href="http://www.bidvertiser.com">affiliate program</a></noscript>
-    <!-- End BidVertiser code -->
 </body>
 </html>

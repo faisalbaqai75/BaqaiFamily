@@ -9,10 +9,21 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        int fatherId = 0;
+        int.TryParse(Request["FatherId"] ?? "0", out fatherId);
+        DropDownList fatherList = this.FormView1.FindControl("DropDownList4") as DropDownList;
+
+        if (fatherList != null && fatherId > 0 && !IsPostBack)
+        {
+            //Set Father ID, if not exists, it will default to 0
+            fatherList.SelectedValue = fatherId.ToString();
+        }
+
+
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {
-            lblLogin.Text = "Welcome " + pInfo.FullName;
+            lblLogin.Text = string.Format("Welcome <a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", pInfo.PersonID, pInfo.FullName);
         }
         else
         {
@@ -86,12 +97,19 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
 
         if (p.SpouseID != null && p.SpouseID != 0)
         {
-            //Updating SpouseID after submit
-            using (MyFamilyDatabaseDataContext db = new MyFamilyDatabaseDataContext())
+            try
             {
-                PersonInfo spouse = db.PersonInfos.Where(sp => sp.PersonID == p.SpouseID).FirstOrDefault();
-                spouse.SpouseID = p.PersonID;
-                db.SubmitChanges();
+                //Updating SpouseID after submit
+                using (MyFamilyDatabaseDataContext db = new MyFamilyDatabaseDataContext())
+                {
+                    PersonInfo spouse = db.PersonInfos.Where(sp => sp.PersonID == p.SpouseID).FirstOrDefault();
+                    spouse.SpouseID = p.PersonID;
+                    db.SubmitChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                //Eat any exception
             }
         }
 

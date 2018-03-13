@@ -247,24 +247,24 @@
                             <%
                                 using (MyFamilyDatabaseDataContext dc = new MyFamilyDatabaseDataContext())
                                 {
+                                    DateTime startTime = DateTime.Now;
+                                    System.Collections.Generic.List<int> picIds = new System.Collections.Generic.List<int>();
                                     foreach (string imageId in System.IO.Directory.GetFiles(Request.PhysicalApplicationPath + "\\images\\", "*.jpg"))
                                     {
                                         System.IO.FileInfo fi = new System.IO.FileInfo(imageId);
                                         if (Regex.IsMatch(fi.Name, @"\d+\.jpg"))
                                         {
-                                            int picId = Convert.ToInt32(Regex.Match(fi.Name, @"\d+").Value);
-                                            PersonInfo pInfo = dc.PersonInfos.Where(per => per.PersonID == picId).FirstOrDefault();
-                                            if (pInfo != null && pInfo.Gender == "Male")
-                                            {
-                                  
-                                          
-                            %>
-                                <a href="./PersonInfo.aspx?PersonID=<%=fi.Name.ToLower().Replace(".jpg","")%>"><img alt="" src="images/<%=fi.Name%>" width="100" height="125" style="border-width: 1px" /></a>
-                            <%              }
+                                            picIds.Add(Convert.ToInt32(Regex.Match(fi.Name, @"\d+").Value));
                                         }
                                     }
+                                    
+                                    foreach(var personId in dc.PersonInfos.Where(p => p.Gender=="Male" && picIds.Contains(p.PersonID)).Select(s => s.PersonID))
+                                    {
+                                        Response.Write(string.Format("<a href='./PersonInfo.aspx?PersonID={0}'><img alt='' src='images/{1}' width='100' height='125' style='border-width: 1px' /></a>", personId, personId + ".jpg"));
+                                    }
                                 }
-                            %>
+                                
+                            %> 
                             </td>
                         </tr>
                     </table>

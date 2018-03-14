@@ -125,9 +125,6 @@ public static class ExtMethods
     {
         string serializedObject =
             "PersonID:" + personInfo.PersonID + "\r\n" +
-            "FirstName:" + personInfo.FirstName + "\r\n" +
-            "MiddleName:" + personInfo.MiddleName + "\r\n" +
-            "LastName:" + personInfo.LastName + "\r\n" +
             "Gender:" + personInfo.Gender + "\r\n" +
             "OccupationID:" + personInfo.OccupationID + "\r\n" +
             "Contact:" + personInfo.Contact + "\r\n" +

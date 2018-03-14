@@ -24,11 +24,6 @@ public partial class EditPersonInfoPage : System.Web.UI.Page
     {
         lblError.Visible = true;
         PersonInfo p = e.NewObject as PersonInfo;
-        //TODO: Remove once update DB for First and LastName
-        if (!string.IsNullOrEmpty(p.FullName))
-        {
-            p.FirstName = p.LastName = p.FullName;
-        }
 
         /*if (p.SpouseID == 0) p.SpouseID = null;
         if (p.OccupationID == 0) p.OccupationID = null;

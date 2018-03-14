@@ -16,11 +16,6 @@ public partial class _Default : System.Web.UI.Page
     {
         Session.Timeout = 60;
 
-        using (MyFamilyDatabaseDataContext dc = new MyFamilyDatabaseDataContext())
-        {
-            if (!dc.DatabaseExists())
-                dc.CreateDatabase();
-        }
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {

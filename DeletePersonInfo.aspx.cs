@@ -41,9 +41,6 @@ public partial class DeletePersonInfo : System.Web.UI.Page
         if (_PersonInfo != null)
         {
             txtPersonId.Text = _PersonInfo.PersonID.ToString();
-            txtFirstName.Text = _PersonInfo.FirstName;
-            txtMiddleName.Text = _PersonInfo.MiddleName;
-            txtLastName.Text = _PersonInfo.LastName;
             txtGender.Text = _PersonInfo.Gender;
             //personInfo.OccupationID = txtOccupationId.Text
             txtContact.Text = _PersonInfo.Contact;
@@ -54,8 +51,8 @@ public partial class DeletePersonInfo : System.Web.UI.Page
             txtAboutMe.Text = _PersonInfo.AboutMe;
             txtSpouseID.Text = (_PersonInfo.SpouseID != null && _PersonInfo.SpouseID != 0)? _PersonInfo.SpouseID.ToString() : string.Empty;
             txtFatherID.Text = (_PersonInfo.FatherID != null && _PersonInfo.FatherID != 0) ? _PersonInfo.FatherID.ToString() : string.Empty;
-            _PersonInfo.UserName = _PersonInfo.FirstName;
-            _PersonInfo.Password = _PersonInfo.LastName;
+            _PersonInfo.UserName = _PersonInfo.FullName;
+            _PersonInfo.Password = _PersonInfo.FullName;
         }
         else
         {

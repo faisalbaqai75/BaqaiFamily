@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyFamilyDatabase" Class="MyFamilyDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=CHELSQLGIS011\SQL2008;Initial Catalog=myfamilydatabase;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MyFamilyDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=PHELIPUSQLL001\DB2016;Initial Catalog=myfamilydatabase;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MyFamilyDatabaseConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Occupation" Member="Occupations">
     <Type Name="Occupation">
       <Column Name="OccupationID" Type="System.Int16" DbType="Smallint NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -10,9 +10,6 @@
   <Table Name="dbo.PersonInfo" Member="PersonInfos">
     <Type Name="PersonInfo">
       <Column Name="PersonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="MiddleName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Gender" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="OccupationID" Type="System.Int16" DbType="smallint" CanBeNull="true" />
       <Column Name="Contact" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />

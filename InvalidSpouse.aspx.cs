@@ -12,6 +12,9 @@ public partial class InvalidSpouse : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         _db = new MyFamilyDatabaseDataContext();
+        //_db.Log = Response.Output;
+        //_db.PersonInfos.Where(p => p.SpouseID > 0 && p.Spouse.SpouseID != p.PersonID).ToList();
+        //return;
         foreach (PersonInfo personInfo in _db.PersonInfos.Where(p => p.PersonID !=0) )
         {
             if (personInfo.SpouseID != null && personInfo.SpouseID != 0)

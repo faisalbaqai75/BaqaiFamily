@@ -19,11 +19,9 @@ public partial class AllMembers : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         _db = new MyFamilyDatabaseDataContext();
-        //_db.DeferredLoadingEnabled = true;
-        //_db.Log = Response.Output;
 
-        short occId = -1;
-        if (!short.TryParse(Request["OccupationId"] ?? "-1", out occId))
+        short occId = 0;
+        if (!short.TryParse(Request["OccupationId"] ?? "0", out occId))
             _OccupationId = null;
         else
             _OccupationId = occId;

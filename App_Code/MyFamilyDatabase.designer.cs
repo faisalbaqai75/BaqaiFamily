@@ -214,12 +214,6 @@ public partial class PersonInfo : INotifyPropertyChanging, INotifyPropertyChange
 	
 	private int _PersonID;
 	
-	private string _FirstName;
-	
-	private string _MiddleName;
-	
-	private string _LastName;
-	
 	private string _Gender;
 	
 	private System.Nullable<short> _OccupationID;
@@ -266,12 +260,6 @@ public partial class PersonInfo : INotifyPropertyChanging, INotifyPropertyChange
     partial void OnCreated();
     partial void OnPersonIDChanging(int value);
     partial void OnPersonIDChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnMiddleNameChanging(string value);
-    partial void OnMiddleNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
     partial void OnGenderChanging(string value);
     partial void OnGenderChanged();
     partial void OnOccupationIDChanging(System.Nullable<short> value);
@@ -330,66 +318,6 @@ public partial class PersonInfo : INotifyPropertyChanging, INotifyPropertyChange
 				this._PersonID = value;
 				this.SendPropertyChanged("PersonID");
 				this.OnPersonIDChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-	public string FirstName
-	{
-		get
-		{
-			return this._FirstName;
-		}
-		set
-		{
-			if ((this._FirstName != value))
-			{
-				this.OnFirstNameChanging(value);
-				this.SendPropertyChanging();
-				this._FirstName = value;
-				this.SendPropertyChanged("FirstName");
-				this.OnFirstNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MiddleName", DbType="VarChar(50)")]
-	public string MiddleName
-	{
-		get
-		{
-			return this._MiddleName;
-		}
-		set
-		{
-			if ((this._MiddleName != value))
-			{
-				this.OnMiddleNameChanging(value);
-				this.SendPropertyChanging();
-				this._MiddleName = value;
-				this.SendPropertyChanged("MiddleName");
-				this.OnMiddleNameChanged();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(50)")]
-	public string LastName
-	{
-		get
-		{
-			return this._LastName;
-		}
-		set
-		{
-			if ((this._LastName != value))
-			{
-				this.OnLastNameChanging(value);
-				this.SendPropertyChanging();
-				this._LastName = value;
-				this.SendPropertyChanged("LastName");
-				this.OnLastNameChanged();
 			}
 		}
 	}

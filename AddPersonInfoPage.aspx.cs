@@ -10,6 +10,7 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         int fatherId = 0;
+        int spouseId = 0;
         int.TryParse(Request["FatherId"] ?? "0", out fatherId);
         DropDownList fatherList = this.FormView1.FindControl("DropDownList4") as DropDownList;
 
@@ -17,7 +18,19 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
         {
             //Set Father ID, if not exists, it will default to 0
             fatherList.SelectedValue = fatherId.ToString();
+            fatherList.Enabled = false;
         }
+
+        int.TryParse(Request["SpouseId"] ?? "0", out spouseId);
+        DropDownList spouseList = this.FormView1.FindControl("DropDownList3") as DropDownList;
+
+        if (spouseList != null && spouseId > 0 && !IsPostBack)
+        {
+            //Set Spouse ID, if not exists, it will default to 0
+            spouseList.SelectedValue = spouseId.ToString();
+            spouseList.Enabled = false;
+        }
+
 
 
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
@@ -42,19 +55,11 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
             return;
         }
 
-        //TODO: Remove once update DB for First and LastName
         if (string.IsNullOrEmpty(p.FullName))
         {
             e.Cancel = true;
             return;
         }
-
-        p.FirstName = p.LastName = p.FullName;
-
-        /*if (p.SpouseID == 0) p.SpouseID = null;
-        if (p.OccupationID == 0) p.OccupationID = null;
-        if (p.FatherID == 0) p.Father = null;
-        if (p.ManagedBy == 0) p.ManagedBy = null;*/
 
         using (MyFamilyDatabaseDataContext db = new MyFamilyDatabaseDataContext())
         {
@@ -107,7 +112,7 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
                     db.SubmitChanges();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Eat any exception
             }

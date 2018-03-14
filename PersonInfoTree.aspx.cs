@@ -13,7 +13,7 @@ public partial class PersonInfoTree : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         _db = new MyFamilyDatabaseDataContext();
-        _db.ObjectTrackingEnabled = false;
+        
         int id;
         if (!int.TryParse(Request["PersonID"], out id))
             id = 9;

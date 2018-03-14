@@ -19,12 +19,6 @@
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                 <asp:BoundField DataField="PersonID" HeaderText="PersonID" ReadOnly="True" 
                     SortExpression="PersonID" />
-                <asp:BoundField DataField="FirstName" HeaderText="FirstName" 
-                    SortExpression="FirstName" />
-                <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" 
-                    SortExpression="MiddleName" />
-                <asp:BoundField DataField="LastName" HeaderText="LastName" 
-                    SortExpression="LastName" />
                 <asp:BoundField DataField="Gender" HeaderText="Gender" 
                     SortExpression="Gender" />
                 <asp:BoundField DataField="OccupationID" HeaderText="OccupationID" 

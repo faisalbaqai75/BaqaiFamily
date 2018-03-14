@@ -13,15 +13,6 @@
         PersonId:
         <asp:TextBox ID="txtPersonId" runat="server"></asp:TextBox>
         <br />
-        First Name:
-        <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
-        <br />
-        Middle Name:
-        <asp:TextBox ID="txtMiddleName" runat="server"></asp:TextBox>
-        <br />
-        Last Name:
-        <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
-        <br />
         Gender:
         <asp:TextBox ID="txtGender" runat="server"></asp:TextBox>
         <br />

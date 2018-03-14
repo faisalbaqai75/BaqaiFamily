@@ -12,6 +12,11 @@ public partial class FamilyTree : System.Web.UI.Page
     public MyFamilyDatabaseDataContext db;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Adding this page to Cache for 5 mins.
+        Response.Cache.SetExpires(DateTime.Now.AddSeconds(300));
+        Response.Cache.SetCacheability(HttpCacheability.Public);
+        Response.Cache.SetValidUntilExpires(true);
+
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {
@@ -24,6 +29,8 @@ public partial class FamilyTree : System.Web.UI.Page
 
 
         db = new MyFamilyDatabaseDataContext();
+        //db.Log = Response.Output;
+
 
         TreeView1.Nodes.Clear();
 
@@ -34,7 +41,7 @@ public partial class FamilyTree : System.Web.UI.Page
         
 
         TreeView1.Nodes.Add(rootNode);
-        
+
         var allMale = db.PersonInfos.Where(p => p.PersonID != 0 && (p.FatherID == null || p.FatherID == 0) && p.Gender == "Male" && p.FullName.Contains("Baqai")).OrderBy(o => o.FullName);
 
         DateTime start = DateTime.Now;
@@ -49,6 +56,9 @@ public partial class FamilyTree : System.Web.UI.Page
 
             PopulateChildren(childNode, male);
         }
+
+        //rootNode.ChildNodes.Add(new TreeNode((DateTime.Now - start).ToString()));
+
     }
 
     protected override void OnUnload(EventArgs e)
@@ -56,11 +66,6 @@ public partial class FamilyTree : System.Web.UI.Page
         if (db != null)
             db.Dispose();
             
-    }
-
-    protected void TreeView1_TreeNodePopulate(object sender, TreeNodeEventArgs e)
-    {
-
     }
 
     void PopulateChildren(TreeNode personNode, PersonInfo person)
@@ -80,5 +85,4 @@ public partial class FamilyTree : System.Web.UI.Page
             }
         }
     }
-   
 }

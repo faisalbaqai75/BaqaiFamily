@@ -60,6 +60,8 @@
                                 &nbsp;&nbsp;<a href="http://www.facebook.com/groups/BaqaiFamily/" target="_blank">Facebook</a><br />
                                 &nbsp;&nbsp;<a href="http://groups.yahoo.com/group/baqai/" target="_blank">Yahoo Group</a><br />
                                 &nbsp;&nbsp;<a href="mailto:BaqaiFamily@outlook.com" target="_top">Contact Us</a><br />
+                                <br />
+                                &nbsp;&nbsp;<a href="./SupportUs.aspx" target="_top">Contact Us</a><br />
                         </div>
                     </div>
                 </td>

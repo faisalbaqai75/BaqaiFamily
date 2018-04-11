@@ -18,12 +18,12 @@
         }
     </script>
     <title>Baqai Family Tree</title>
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
     </div>
 
     <form id="form1" runat="server">

@@ -19,15 +19,14 @@
     </script>
     <title>Welcome to Baqai Family</title>
 
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
-
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <form id="form1" runat="server">
 
         <div align="right">
-            <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
         </div>
 
 
@@ -57,6 +56,9 @@
                                             }
                                         }
 
+                                        //Above build list of IDs for images and now query Database to get list o male from the list. This way we have only 1 round-trip query.
+                                        //If we do same thing in the loop, that was generating many Sql Queries and perf was slower.
+                                        
                                         //Showing only picture of Males.
                                         foreach (var personId in dc.PersonInfos.Where(p => p.Gender == "Male" && picIds.Contains(p.PersonID)).Select(s => s.PersonID))
                                         {

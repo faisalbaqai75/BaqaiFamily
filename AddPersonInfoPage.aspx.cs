@@ -32,7 +32,6 @@ public partial class AddPersonInfoPage : System.Web.UI.Page
         }
 
 
-
         PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
         if (pInfo != null)
         {

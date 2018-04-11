@@ -16,12 +16,12 @@
         }
     </script>
     <title>Welcome to Baqai Family</title>
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
     </div>
     <form id="form1" runat="server">
 
@@ -58,7 +58,7 @@
                                     Text='<%# Bind("AllChildren") %>' />
                             <br />
                             PersonID:
-                                <asp:Label ID="PersonIDLabel1" runat="server" Text='<%# Eval("PersonID") %>' />
+                                <asp:Label ID="PersonIDLabel1" EnableViewState="false" runat="server" Text='<%# Eval("PersonID") %>' />
                             <br />
                             Gender:
                                 <asp:TextBox ID="GenderTextBox" runat="server" Text='<%# Bind("Gender") %>' />
@@ -269,56 +269,56 @@
                         </InsertItemTemplate>
                         <ItemTemplate>
                             PersonID:
-                                <asp:Label ID="PersonIDLabel" runat="server" Text='<%# Eval("PersonID") %>' />
+                                <asp:Label ID="PersonIDLabel" EnableViewState="false" runat="server" Text='<%# Eval("PersonID") %>' />
                             <br />
                             Gender:
-                                <asp:Label ID="GenderLabel" runat="server" Text='<%# Bind("Gender") %>' />
+                                <asp:Label ID="GenderLabel" EnableViewState="false" runat="server" Text='<%# Bind("Gender") %>' />
                             <br />
                             OccupationID:
-                                <asp:Label ID="OccupationIDLabel" runat="server"
+                                <asp:Label ID="OccupationIDLabel" EnableViewState="false" runat="server"
                                     Text='<%# Bind("OccupationID") %>' />
                             <br />
                             Contact:
-                                <asp:Label ID="ContactLabel" runat="server" Text='<%# Bind("Contact") %>' />
+                                <asp:Label ID="ContactLabel" EnableViewState="false" runat="server" Text='<%# Bind("Contact") %>' />
                             <br />
                             DOB:
-                                <asp:Label ID="DOBLabel" runat="server" Text='<%# Bind("DOB") %>' />
+                                <asp:Label ID="DOBLabel" EnableViewState="false" runat="server" Text='<%# Bind("DOB") %>' />
                             <br />
                             PlaceOfBirth:
-                                <asp:Label ID="PlaceOfBirthLabel" runat="server"
+                                <asp:Label ID="PlaceOfBirthLabel" EnableViewState="false" runat="server"
                                     Text='<%# Bind("PlaceOfBirth") %>' />
                             <br />
                             PrimaryEmail:
-                                <asp:Label ID="PrimaryEmailLabel" runat="server"
+                                <asp:Label ID="PrimaryEmailLabel" EnableViewState="false" runat="server"
                                     Text='<%# Bind("PrimaryEmail") %>' />
                             <br />
                             SecondaryEmail:
-                                <asp:Label ID="SecondaryEmailLabel" runat="server"
+                                <asp:Label ID="SecondaryEmailLabel" EnableViewState="false" runat="server"
                                     Text='<%# Bind("SecondaryEmail") %>' />
                             <br />
                             AboutMe:
-                                <asp:Label ID="AboutMeLabel" runat="server" Text='<%# Bind("AboutMe") %>' />
+                                <asp:Label ID="AboutMeLabel" EnableViewState="false" runat="server" Text='<%# Bind("AboutMe") %>' />
                             <br />
                             SpouseID:
-                                <asp:Label ID="SpouseIDLabel" runat="server" Text='<%# Bind("SpouseID") %>' />
+                                <asp:Label ID="SpouseIDLabel" EnableViewState="false" runat="server" Text='<%# Bind("SpouseID") %>' />
                             <br />
                             FatherID:
-                                <asp:Label ID="FatherIDLabel" runat="server" Text='<%# Bind("FatherID") %>' />
+                                <asp:Label ID="FatherIDLabel" EnableViewState="false" runat="server" Text='<%# Bind("FatherID") %>' />
                             <br />
                             UserName:
-                                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Bind("UserName") %>' />
+                                <asp:Label ID="UserNameLabel" EnableViewState="false" runat="server" Text='<%# Bind("UserName") %>' />
                             <br />
                             Password:
-                                <asp:Label ID="PasswordLabel" runat="server" Text='<%# Bind("Password") %>' />
+                                <asp:Label ID="PasswordLabel" EnableViewState="false" runat="server" Text='<%# Bind("Password") %>' />
                             <br />
                             ShowDOB:
-                                <asp:Label ID="ShowDOBLabel" runat="server" Text='<%# Bind("ShowDOB") %>' />
+                                <asp:Label ID="ShowDOBLabel" EnableViewState="false" runat="server" Text='<%# Bind("ShowDOB") %>' />
                             <br />
                             ManagedBy:
-                                <asp:Label ID="ManagedByLabel" runat="server" Text='<%# Bind("ManagedBy") %>' />
+                                <asp:Label ID="ManagedByLabel" EnableViewState="false" runat="server" Text='<%# Bind("ManagedBy") %>' />
                             <br />
                             FullName:
-                                <asp:Label ID="FullNameLabel" runat="server" Text='<%# Bind("FullName") %>' />
+                                <asp:Label ID="FullNameLabel" EnableViewState="false" runat="server" Text='<%# Bind("FullName") %>' />
                             <br />
                             <br />
                             <asp:LinkButton ID="NewButton" runat="server" CausesValidation="False"
@@ -326,7 +326,7 @@
                         </ItemTemplate>
                     </asp:FormView>
                     <br />
-                    <asp:Label ID="lblErrors" runat="server" ForeColor="Red" Text="Error"
+                    <asp:Label ID="lblErrors" EnableViewState="false" runat="server" ForeColor="Red" Text="Error"
                         Visible="False"></asp:Label>
                 </td>
             </tr>

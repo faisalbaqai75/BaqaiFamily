@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AllMembers.aspx.cs" Inherits="AllMembers" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AllMembers.aspx.cs" Inherits="AllMembers" %>
 
 <%@ Import Namespace="System.Linq" %>
 
@@ -19,12 +19,12 @@
     </script>
     <title>Welcome to Baqai Family</title>
 
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text=""></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text=""></asp:Label>
     </div>
     <form id="form1" runat="server">
 
@@ -44,7 +44,7 @@
 
                                 //foreach (PersonInfo person in personInfos.OrderBy(p => p.FullName))
                                 //Using this single 'Select', now it generates only 1 query instead of 10s of query.
-                                foreach (var person in personInfos.OrderBy(p => p.FullName).Select(s => new { s.PersonID, s.FatherID, s.Gender, s.FullName, Father = new { FullName = s.Father.FullName } }))
+                                foreach (var person in personInfos.OrderBy(p => p.FullName).Select(s => new { s.PersonID, s.FatherID, s.DOB, s.Gender, s.FullName, Father = new { FullName = s.Father.FullName } }))
                                 {
                                     string fatherName = string.Empty;
 
@@ -53,9 +53,20 @@
                                         fatherName = person.Gender == "Male" ? " (S/O " : " (D/O ";
                                         fatherName += person.Father.FullName + ")";
                                     }
+                                    if (person.DOB != null && person.DOB.Value.Day != 1 && person.DOB.Value.Month != 1)
+                                    {
+                                        DateTime birthdayOn = new DateTime(DateTime.Today.Year, person.DOB.Value.Month, person.DOB.Value.Day);
+                                        if (birthdayOn >= DateTime.Today && birthdayOn <= DateTime.Today.AddDays(2))
+                                        {
+                                            //Emoji for Cake, shortcake and balloon.
+                                            fatherName += "(&#127874;&#x1F370;&#x1F388;) -- Happy Birthday on: " + person.DOB.Value.ToString("m") ;
+                                        }
+
+                                    }
 
                                     if (char.ToUpper(person.FullName[0]) != ch)
                                     {
+                                        
                                         ch = char.ToUpper(person.FullName[0]);
                                         Response.Write("</tr>");
                                         Response.Write("</table>");

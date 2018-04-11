@@ -16,12 +16,12 @@
         }
     </script>
     <title>Welcome to Baqai Family</title>
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
     </div>
 
     <form id="form1" runat="server">
@@ -33,10 +33,20 @@
                 <td valign="top">
                     <table border="1" cellpadding="1" cellspacing="1" class="style2">
                         <tr>
-                            <td class="style3">
+                            <td>
                                 <div>
                                     UserName:&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                                            <asp:LinqDataSource ID="LinqDataSource1" runat="server" ContextTypeName="MyFamilyDatabaseDataContext" Select="new (FullName, UserName)" TableName="PersonInfos" OrderBy="FullName" Where="PersonID != @PersonID">
+                                                                <WhereParameters>
+                                                                    <asp:Parameter DefaultValue="0" Name="PersonID" Type="Int32" />
+                                                                </WhereParameters>
+                        </asp:LinqDataSource>
+                        <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="LinqDataSource1" DataTextField="FullName" DataValueField="UserName">
+                        </asp:DropDownList>
+
+<%--                        <br />
+
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
                                     <br />
                                     Password:&nbsp;&nbsp;        
                                     <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
@@ -44,6 +54,8 @@
                                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" />
                                     <br />
                                     <br />
+
+                                    Don't remember your user/password, <a href="mailto:BaqaiFamily@outlook.com" target="_top">Contact Us</a> for help.
 
                                 </div>
                             </td>

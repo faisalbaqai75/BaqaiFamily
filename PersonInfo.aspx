@@ -2,7 +2,7 @@
 
 <%@ Import Namespace="System.Linq" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 3.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -19,13 +19,13 @@
         }
     </script>
     <title><%if (_PersonInfo != null) { Response.Write(_PersonInfo.FullName); } %></title>
-    <link href="TreeTemplate.css" rel="stylesheet" />
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
+    <link href="css/TreeTemplate.css" rel="stylesheet" />
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
     </div>
 
 
@@ -48,8 +48,7 @@
                                     }
                                     else
                                     {
-                                        //string[] Month = { "", "Jan ", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
-                                        //tempDOB = Month[_PersonInfo.DOB.Value.Month] + " " + _PersonInfo.DOB.Value.Day;
+                                        //'m' only show Day and Month
                                         tempDOB = _PersonInfo.DOB.Value.ToString("m");
                                     }
                                 }
@@ -72,7 +71,7 @@
                                 else filePath = "images\\" + _PersonInfo.PersonID + ".jpg";
 
 
-                                Response.Write("</td><td><img src='" + filePath + "' alt='' style='height: 200px' /><br/>");
+                                Response.Write("</td><td><img src='" + filePath + "' alt='' /><br/>");
                                 Response.Write("</td></tr>");
                                 Response.Write("</table>");
 
@@ -114,6 +113,9 @@
                                     ExtMethods.WriteLine(Response);
                                 }
 
+                                Response.Write(ExtMethods.Bold("Cousins: ") + ExtMethods.Hyperlink("All Cousins", "./Cousins.aspx?PersonId=" + _PersonInfo.PersonID));
+                                ExtMethods.WriteLine(Response);
+
                                 /*ExtMethods.WriteLine(Response);
                                 Response.Write(ExtMethods.Bold("Siblings: "));
                                 if (_PersonInfo.Father != null && _PersonInfo.FatherID != 0)
@@ -153,54 +155,52 @@
         
                         %>
                     </div>
-
-                    <!-- New Code -->
+                    <!-- Person Tree -->
                     <div class="tree">
                         <div>
                             <ul>
                                 <li>
 
-                                    <a href="PersonInfo.aspx?PersonID=<%=_PersonInfo.FatherID??_PersonInfo.PersonID%>">
-                                        <%--Father--%>
-                                        <%if (_PersonInfo.FatherID != null && _PersonInfo.FatherID != 0)
-                                          {
-                                              Response.Write(_PersonInfo.Father.FullName);
-                                          }
-                                          else
-                                          {
-                                              Response.Write("Data unavailable");
-                                          }
-                                        %>
-                                    </a>
+                                    <%--Father--%>
+                                    <%if (_PersonInfo.FatherID != null && _PersonInfo.FatherID != 0)
+                                      {
+                                          Response.Write(string.Format("<a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", _PersonInfo.FatherID, _PersonInfo.Father.FullName));
+                                          //Response.Write(_PersonInfo.Father.FullName);
+                                      }
+                                      else
+                                      {
+                                          //Response.Write("Data unavailable");
+                                          Response.Write("<a href='#'>Data unavailable</a>");
+                                      }
+                                    %>
 
                                     <ul>
                                         <li>
-                                            <a href="PersonInfo.aspx?PersonID=<%=_PersonInfo.PersonID%>">
-                                                <%--Person Information--%>
-                                                <%Response.Write(_PersonInfo.FullName);
-                                                %></a>
+                                            <%
+                                                Response.Write(string.Format("<a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", _PersonInfo.PersonID, _PersonInfo.FullName));
 
-                                            <%if (_PersonInfo.AllChildren != null)//&& _PersonInfo.AllChildren.Count > 0)
-                                              {
-                                                  Response.Write("<ul>");
-                                                  foreach (PersonInfo child in _PersonInfo.AllChildren)
-                                                  {
-                                                      string filePath = Request.PhysicalApplicationPath + "images\\" + child.PersonID + ".thumb.jpg";
-                                                      System.IO.FileInfo imageFile = new System.IO.FileInfo(filePath);
-                                                      if (imageFile.Exists == false) filePath = "images\\" + child.Gender + ".thumb.jpg";
-                                                      else filePath = "images\\" + child.PersonID + ".thumb.jpg";
+                                                if (_PersonInfo.AllChildren != null)//&& _PersonInfo.AllChildren.Count > 0)
+                                                {
+                                                    Response.Write("<ul>");
+                                                    foreach (PersonInfo child in _PersonInfo.AllChildren)
+                                                    {
+                                                        string filePath = Request.PhysicalApplicationPath + "images\\" + child.PersonID + ".thumb.jpg";
+                                                        System.IO.FileInfo imageFile = new System.IO.FileInfo(filePath);
+                                                        if (imageFile.Exists == false) filePath = "images\\" + child.Gender + ".thumb.jpg";
+                                                        else filePath = "images\\" + child.PersonID + ".thumb.jpg";
 
-                                                      Response.Write("<li><a href='PersonInfo.aspx?PersonID=" + child.PersonID + "'><img src='" + filePath + "' alt='' /><br/>" + child.FullName + "</a></li>");
-                                                  }
-                                                  //Add a new child
-                                                  if (_PersonInfo.Gender == "Male")// && _PersonInfo.SpouseID != null && _PersonInfo.SpouseID != 0)
-                                                  {
-                                                      //Anyone can add child //as long as 'PersonInfo' is male and married.
-                                                      Response.Write("<li><a href='./AddPersonInfoPage.aspx?FatherId=" + _PersonInfo.PersonID + "'>Add a child...</a></li>");
-                                                  }
+                                                        Response.Write(string.Format("<li><a href='PersonInfo.aspx?PersonID={0}'><img src='{1}' alt='' /><br/>{2}</a></li>", child.PersonID, filePath, child.FullName));
+                                                        //Response.Write("<li><a href='PersonInfo.aspx?PersonID=" + child.PersonID + "'><img src='" + filePath + "' alt='' /><br/>" + child.FullName + "</a></li>");
+                                                    }
+                                                    //Add a new child
+                                                    if (_PersonInfo.Gender == "Male")// && _PersonInfo.SpouseID != null && _PersonInfo.SpouseID != 0)
+                                                    {
+                                                        //Anyone can add child //as long as 'PersonInfo' is male and married.
+                                                        Response.Write("<li><a href='./AddPersonInfoPage.aspx?FatherId=" + _PersonInfo.PersonID + "'>Add a child...</a></li>");
+                                                    }
 
-                                                  Response.Write("</ul>");
-                                              }
+                                                    Response.Write("</ul>");
+                                                }
                                             %>
                                         </li>
                                     </ul>
@@ -208,8 +208,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!-- End New Code -->
-
+                    <!-- End Person Tree -->
                 </td>
             </tr>
         </table>

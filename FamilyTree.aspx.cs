@@ -81,7 +81,6 @@ public partial class FamilyTree : System.Web.UI.Page
                 personNode.ChildNodes.Add(childNode);
 
                 PopulateChildren(childNode, child);
-
             }
         }
     }

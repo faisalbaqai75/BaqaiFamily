@@ -5,12 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>Welcome to Baqai Family</title>
-    <link href="NavBarStyleSheet.css" rel="stylesheet" />
+    <link href="css/NavBarStyleSheet.css" rel="stylesheet" />
 </head>
 <body bgcolor="#ccffcc">
 
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
     </div>
     <form id="form1" runat="server">
 
@@ -41,7 +41,7 @@
                                     <td class="style10">PersonID:
                                     </td>
                                     <td>
-                                        <asp:Label ID="PersonIDLabel1" runat="server" Text='<%# Eval("PersonID") %>' />
+                                        <asp:Label ID="PersonIDLabel1" EnableViewState="false" runat="server" Text='<%# Eval("PersonID") %>' />
                                     </td>
                                 </tr>
                                 <tr>
@@ -53,10 +53,7 @@
                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
                                             ControlToValidate="FullNameTextBox" ErrorMessage="Full Name not provided."></asp:RequiredFieldValidator>
                                         <br />
-                                        Provide Full name, if there no middle name, then use Father Name as middle Name.<br />
-                                        E.g. Haris (Ahmed) Baqai or Haris Moid Baqai to mainting uniqueness.<br />
-                                        If person has passed away, adde [Late] at the end of name.<br />
-                                    </td>
+                                        Provide Full name, if there no middle name, then use Father Name as middle Name.<br />E.g. Haris (Ahmed) Baqai or Haris Moid Baqai to mainting uniqueness.<br />If person has passed away, adde [Late] at the end of name.<br /></td>
                                 </tr>
                                 <tr>
                                     <td class="style10">Gender:</td>
@@ -76,8 +73,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="style10">Date of Birth<br />
-                                    </td>
+                                    <td class="style10">Date of Birth<br /></td>
                                     <td>
                                         <asp:TextBox ID="DOBTextBox" runat="server"
                                             Text='<%# Bind("DOB", "{0:d}") %>' Height="22px" Width="200px" />
@@ -88,7 +84,6 @@
                                         <asp:RangeValidator ID="RangeValidator1" runat="server"
                                             ControlToValidate="DOBTextBox" ErrorMessage="Invalid Date of Birth"
                                             MaximumValue="1/1/2099" MinimumValue="1/1/1800" Type="Date"></asp:RangeValidator>
-                                        <br />
                                         <br />
                                         <br />
                                         Show Year of Birth on Website<br />
@@ -309,79 +304,79 @@
                                 <tr>
                                     <td>Person ID</td>
                                     <td>
-                                        <asp:Label ID="PersonIDLabel" runat="server" Text='<%# Eval("PersonID") %>' />
+                                        <asp:Label ID="PersonIDLabel" EnableViewState="false" runat="server" Text='<%# Eval("PersonID") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Full Name</td>
                                     <td>
-                                        <asp:Label ID="FullNameLabel" runat="server" Text='<%# Bind("FullName") %>' />
+                                        <asp:Label ID="FullNameLabel" EnableViewState="false" runat="server" Text='<%# Bind("FullName") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Gender</td>
                                     <td>
-                                        <asp:Label ID="GenderLabel" runat="server" Text='<%# Bind("Gender") %>' />
+                                        <asp:Label ID="GenderLabel" EnableViewState="false" runat="server" Text='<%# Bind("Gender") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Contact</td>
                                     <td>
-                                        <asp:Label ID="ContactLabel" runat="server" Text='<%# Bind("Contact") %>' />
+                                        <asp:Label ID="ContactLabel" EnableViewState="false" runat="server" Text='<%# Bind("Contact") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Place of Birth</td>
                                     <td>
-                                        <asp:Label ID="PlaceOfBirthLabel" runat="server"
+                                        <asp:Label ID="PlaceOfBirthLabel" EnableViewState="false" runat="server"
                                             Text='<%# Bind("PlaceOfBirth") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Primary Email</td>
                                     <td>
-                                        <asp:Label ID="PrimaryEmailLabel" runat="server"
+                                        <asp:Label ID="PrimaryEmailLabel" EnableViewState="false" runat="server"
                                             Text='<%# Bind("PrimaryEmail") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Secondary Email</td>
                                     <td>
-                                        <asp:Label ID="SecondaryEmailLabel" runat="server"
+                                        <asp:Label ID="SecondaryEmailLabel" EnableViewState="false" runat="server"
                                             Text='<%# Bind("SecondaryEmail") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Spouse</td>
                                     <td>
-                                        <asp:Label ID="SpouseIDLabel" runat="server"
+                                        <asp:Label ID="SpouseIDLabel" EnableViewState="false" runat="server"
                                             Text='<%# Bind("Spouse.FullName") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Father</td>
                                     <td>
-                                        <asp:Label ID="FatherIDLabel" runat="server"
+                                        <asp:Label ID="FatherIDLabel" EnableViewState="false" runat="server"
                                             Text='<%# Bind("Father.FullName") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Managed By</td>
                                     <td>
-                                        <asp:Label ID="ManagedByLabel" runat="server"
+                                        <asp:Label ID="ManagedByLabel" EnableViewState="false" runat="server"
                                             Text='<%# Bind("ManagedByPerson.FullName") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>UserName</td>
                                     <td>
-                                        <asp:Label ID="UserNameLabel" runat="server" Text='<%# Bind("UserName") %>' />
+                                        <asp:Label ID="UserNameLabel" EnableViewState="false" runat="server" Text='<%# Bind("UserName") %>' />
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>About Me</td>
                                     <td>
-                                        <asp:Label ID="AboutMeLabel" runat="server" Text='<%# Bind("AboutMe") %>' />
+                                        <asp:Label ID="AboutMeLabel" EnableViewState="false" runat="server" Text='<%# Bind("AboutMe") %>' />
                                     </td>
                                 </tr>
                             </table>
@@ -392,7 +387,7 @@
 
                     </asp:FormView>
 
-                    <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
+                    <asp:Label ID="lblError" EnableViewState="false" runat="server" Text="Label"></asp:Label>
 
                     <br />
                 </td>

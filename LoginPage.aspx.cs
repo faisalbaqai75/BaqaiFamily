@@ -9,6 +9,16 @@ public partial class LoginPage : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        PersonInfo pInfo = Session["LogedInUserInfo"] as PersonInfo;
+        if (pInfo != null)
+        {
+            lblLogin.Text = string.Format("Welcome <a href='./PersonInfo.aspx?PersonID={0}'>{1}</a>", pInfo.PersonID, pInfo.FullName);
+        }
+        else
+        {
+            lblLogin.Text = "<a href='./LoginPage.aspx'>Login</a>";
+        }
+
         if (!Page.IsPostBack)
         {
             ViewState["GoBackTo"] = Request.UrlReferrer;
@@ -18,7 +28,8 @@ public partial class LoginPage : System.Web.UI.Page
     {
         using (MyFamilyDatabaseDataContext db = new MyFamilyDatabaseDataContext())
         {
-            string uName = TextBox1.Text;
+            //string uName = TextBox1.Text;
+            string uName = this.DropDownList1.SelectedValue;
             string uPwd = TextBox2.Text;
 
             PersonInfo pInfo = db.PersonInfos.Where(p => p.UserName.ToLower() == uName.ToLower()
@@ -40,7 +51,6 @@ public partial class LoginPage : System.Web.UI.Page
                 
                 Response.Write("Invalid UserName or Password");
             }
-          
         }
     }
 }

@@ -4,12 +4,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="TreeTemplate.css" rel="stylesheet" />
+    <link href="css/TreeTemplate.css" rel="stylesheet" />
     <title><%if (_PersonInfo != null) { Response.Write(_PersonInfo.FullName); } %></title>
 </head>
 <body>
     <div align="right">
-        <asp:Label ID="lblLogin" runat="server" Text="Label"></asp:Label>
+        <asp:Label ID="lblLogin" EnableViewState="false" runat="server" Text="Label"></asp:Label>
     </div>
 
     <div class="tree">
